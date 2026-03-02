@@ -51,8 +51,9 @@ export const DISTRICT_COST_BANDS: DistrictCost[] = buildDistrictCostBands();
 /**
  * GeoJSON for Rwanda districts. Loaded from same origin (no CORS).
  * Bundled file: public/rwanda-districts.geojson (simplified shapes).
+ * Uses BASE_URL so it works when app is served from a subpath (e.g. GitHub Pages /fi-engine/).
  */
-export const RWANDA_DISTRICTS_GEOJSON_URL = "/rwanda-districts.geojson";
+export const RWANDA_DISTRICTS_GEOJSON_URL = `${import.meta.env.BASE_URL}rwanda-districts.geojson`;
 
 /** Rwanda center [lat, lng] for programmatic re-centering. */
 export const RWANDA_CENTER: [number, number] = [-1.94, 29.87];
