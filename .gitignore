@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Local / IDE
+.DS_Store
+*.local
+.cursor/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.*
+
+# TypeScript
+*.tsbuildinfo
