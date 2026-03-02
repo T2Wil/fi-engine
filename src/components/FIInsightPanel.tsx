@@ -106,7 +106,7 @@ export function FIInsightPanel({ result }: FIInsightPanelProps) {
       labelKey: "scenarioCurrent",
       years: String(projection.yearsToFI!),
     });
-    if (projection.yearsEarlierIfCutExpenses10Pct != null && projection.yearsEarlierIfCutExpenses10Pct > 0) {
+    if (projection.yearsEarlierIfCutExpenses10Pct != null && projection.yearsEarlierIfCutExpenses10Pct > 0 && projection.yearsToFI != null) {
       const yearsIfCut = Math.round((projection.yearsToFI - projection.yearsEarlierIfCutExpenses10Pct) * 10) / 10;
       scenarioRows.push({
         labelKey: "scenarioCut10",
