@@ -45,21 +45,25 @@ function App() {
       <RayBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        <header className="relative text-center mb-6 sm:mb-8">
-          <div className="absolute top-0 right-0 flex items-center gap-2">
-            <LanguageSwitcher />
-            <ThemeToggle />
+        <header className="mb-6 sm:mb-8">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <div className="flex items-start justify-between gap-3">
+              <h1 className="flex-1 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight text-left sm:text-center">
+                {t("titleRwanda")}{" "}
+                <span className="bg-gradient-to-b from-blue-600 via-blue-500 to-gray-900 dark:from-[#4da5fc] dark:via-[#4da5fc] dark:to-white bg-clip-text text-transparent italic">
+                  {t("titleLifestyle")}
+                </span>{" "}
+                {t("titleIncome")}
+              </h1>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </div>
+            </div>
+            <p className="text-sm sm:text-base text-gray-500 dark:text-[#8a8a8f] text-left sm:text-center">
+              {t("subtitle")}
+            </p>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight mb-1">
-            {t("titleRwanda")}{" "}
-            <span className="bg-gradient-to-b from-blue-600 via-blue-500 to-gray-900 dark:from-[#4da5fc] dark:via-[#4da5fc] dark:to-white bg-clip-text text-transparent italic">
-              {t("titleLifestyle")}
-            </span>{" "}
-            {t("titleIncome")}
-          </h1>
-          <p className="text-sm sm:text-base text-gray-500 dark:text-[#8a8a8f]">
-            {t("subtitle")}
-          </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_min(400px,100%)] gap-6 lg:gap-8 items-start">
@@ -67,6 +71,15 @@ function App() {
           <div className="min-w-0 flex flex-col gap-6 sm:gap-8">
             <section>
               <UserInputForm initial={result?.input} onSubmit={handleSubmit} />
+            </section>
+
+            {/* FI insight immediately after the form on small screens */}
+            <section className="lg:hidden">
+              <div className="flex items-center gap-2 text-gray-500 dark:text-[#8a8a8f] text-sm mb-2">
+                <MessageCircle className="size-4" />
+                <span>{t("insightFromFI")}</span>
+              </div>
+              <FIInsightPanel result={result} />
             </section>
 
             <section>
@@ -115,7 +128,7 @@ function App() {
           </div>
 
           {/* Right: FI insight panel (sticky on large screens) */}
-          <aside className="lg:sticky lg:top-6 w-full">
+          <aside className="hidden lg:block lg:sticky lg:top-6 w-full">
             <div className="flex items-center gap-2 text-gray-500 dark:text-[#8a8a8f] text-sm mb-2">
               <MessageCircle className="size-4" />
               <span>{t("insightFromFI")}</span>

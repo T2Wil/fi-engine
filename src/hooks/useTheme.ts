@@ -4,10 +4,10 @@ const STORAGE_KEY = "fi-dashboard-theme";
 type Theme = "light" | "dark";
 
 function getStored(): Theme {
-  if (typeof window === "undefined") return "dark";
+  if (typeof window === "undefined") return "light";
   const s = localStorage.getItem(STORAGE_KEY);
   if (s === "light" || s === "dark") return s;
-  return "dark";
+  return "light";
 }
 
 function applyTheme(theme: Theme) {
