@@ -43,6 +43,12 @@ npm run preview
 
 If your repo name is not `fi-engine`, set the base path in `vite.config.ts`: change `"/fi-engine/"` to `"/your-repo-name/"`, and set the same in `.github/workflows/deploy.yml` (env `GITHUB_PAGES` is used to trigger the correct base at build time).
 
+**If you get 404**
+
+- Use **https://t2wil.github.io/fi-engine/** (with trailing slash). Do not open `https://t2wil.github.io/` (root) or `.../index.html`; the app is only published at `.../fi-engine/`.
+- In **Settings → Pages**, set **Source** to **GitHub Actions** (not “Deploy from a branch”). If the browser requests `/src/main.tsx` and 404s, the wrong page is being served (repo source instead of the built site); set Source to GitHub Actions, then push and open https://t2wil.github.io/fi-engine/.
+- In **Actions**, confirm the “Deploy to GitHub Pages” workflow completed successfully after your last push.
+
 ## Project structure
 
 - `src/data/districtCostBands.ts` — District cost bands (high/medium/low) and GeoJSON URL
